@@ -79,9 +79,13 @@ python scripts/ingestion.py
 ```
 ### 4. Visualize os dados no banco de dados relacional (MySQL).
 
+## 📝 Kanban
+Link: https://kanbanflow.com/board/LmUzZ6r
+
 ## 📬 Contato
 - Nome: Igor Ferrer  
 - LinkedIn: [Seu Perfil](https://www.linkedin.com/in/igor-ferrer-01b945112/)  
 - E-mail: igori83@gmail.com  
+
 
 
