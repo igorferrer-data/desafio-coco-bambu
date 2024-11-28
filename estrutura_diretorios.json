@@ -1,0 +1,9 @@
+/data_lake/
+    /store_id=1/
+        /bus_dt=2024-01-01/
+            detail_lines.json
+            detail_metadata.json
+            fato_pedidos.json
+            dim_lojas.json
+            dim_datas.json
+            dim_itens.json
