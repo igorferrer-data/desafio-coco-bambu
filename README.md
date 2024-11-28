@@ -8,11 +8,9 @@ As seguintes tecnologias e ferramentas foram utilizadas para a implementação d
 
 - **Python**: Linguagem principal para os scripts e processamento.
 - **PySpark**: Para ingestão e transformação de grandes volumes de dados.
-- **SQL**: Modelagem do Data Warehouse e consultas analíticas.
+- **SQL**: Modelagem do Data Lake e consultas analíticas.
 - **MySQL**: Banco de dados relacional para armazenar os dados estruturados.
 - **JSON**: Formato de armazenamento de dados no Data Lake.
-- **Docker**: Para virtualização de ambientes.
-- **Visual Paradigm**: Para o diagramação do modelo de dados.
 
 
 ## 🗂️ Estrutura do Repositório
@@ -45,6 +43,7 @@ dim_lojas para dados das lojas.
 dim_itens para itens do cardápio.  
 dim_datas para datas.  
 detail_lines e detail_metadata para granularidade das linhas do pedido.  
+
 ### 📐 Diagrama do Modelo  
 ![Diagrama](https://github.com/user-attachments/assets/a3261c64-6a36-47df-a027-68a17b824f04)
 
