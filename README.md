@@ -16,7 +16,7 @@ As seguintes tecnologias e ferramentas foram utilizadas para a implementação d
 ## 🗂️ Estrutura do Repositório
 ```plaintext
 .
-├── data_lake/              # Diretório do Data Lake
+├── data_lake/                  # Diretório do Data Lake
 │   ├── store_id=1/
 │   │   ├── bus_dt=2024-01-01/
 │   │   │   ├── detail_lines.json
@@ -25,13 +25,15 @@ As seguintes tecnologias e ferramentas foram utilizadas para a implementação d
 │   │   │   ├── dim_lojas.json
 │   │   │   ├── dim_datas.json
 │   │   │   └── dim_itens.json
-├── scripts/                # Scripts Python
-│   ├── ingestion.py        # Código de ingestão com PySpark
-│   ├── transformation.sql  # Queries SQL para transformação
-│   └── validation.py       # Scripts para validação do esquema
-├── diagrams/               # Diagramas do modelo de dados
-├── README.md               # Documentação do repositório
-└── requirements.txt        # Dependências do projeto
+├── new_repository.py           # NewRepository - Repository Pattern para acesso aos dados
+├── test_new_repository.py      # Testes do NewRepository
+├── NEW_REPOSITORY_README.md    # Documentação do NewRepository
+├── ingestao_dados.py           # Código de ingestão com PySpark
+├── bd_desafio_coco_bambu.sql   # Estrutura do banco de dados
+├── consultas.sql               # Queries SQL para análise
+├── estrutura_diretorios.json   # Estrutura dos diretórios
+├── Diagrama.jpg                # Diagrama do modelo de dados
+└── README.md                   # Documentação principal
 ```
 
 ## 📈 Modelagem do Data Lake
@@ -54,6 +56,32 @@ Extração: Dados recebidos via API no formato JSON.
 Ingestão: Armazenamento dos arquivos no Data Lake, organizados por loja e data.  
 Transformação: Estruturas transformadas e carregadas no banco de dados relacional.  
 Validação: Scripts de validação garantem a integridade e consistência dos dados.  
+
+## 📦 NewRepository - Repository Pattern
+O projeto agora inclui uma implementação do padrão Repository para facilitar o acesso aos dados:
+
+- **Abstração de Dados**: Camada de abstração para operações no Data Lake
+- **Operações JSON**: Salvar e carregar arquivos JSON com tratamento de erros
+- **Métodos Dedicados**: Funções específicas para dimensões e fatos
+- **Testes Completos**: Suite de testes com 15 casos de teste
+
+📖 Ver [NEW_REPOSITORY_README.md](NEW_REPOSITORY_README.md) para documentação completa.
+
+### Exemplo de Uso
+```python
+from new_repository import NewRepository
+
+# Inicializar repositório
+repo = NewRepository(base_path="./data_lake", store_id=1, bus_dt="2024-01-01")
+
+# Salvar dados
+lojas_data = [{"store_id": 1, "nome_loja": "Loja Lago Sul"}]
+repo.save_dim_lojas(lojas_data)
+
+# Carregar dados
+lojas = repo.load_dim_lojas()
+print(lojas)
+```
 
 ## 🛠️ Como Executar o Projeto
 
